@@ -1,0 +1,31 @@
+#creating a database
+create database ecommerce;
+use ecommerce;
+#create table category
+create table category(
+    cat_id int primary key AUTO_INCREMENT,
+    cat_name varchar(20)
+);
+insert into category values(10,'Electronics');
+insert into category values(20,'Grocery');
+#structure
+describe category;
+select * from category;
+insert into category(cat_name) values('Electronics');
+insert into category(cat_name) values('Grocery');
+insert into category(cat_name) values('Fashion');
+#remove the TABLE
+drop table category;
+
+#create table customer
+create table customer(
+    cust_id int PRIMARY KEY,
+    cust_name VARCHAR(20) not null,
+    age int CHECK(age >= 18),
+    email_id VARCHAR(30) UNIQUE
+);
+insert into customer values(100,'moon',20,'moon@gmail.com'); 
+insert into customer values(101,'sun',19,'sun@gmail.com'); 
+SELECT *from customer;
+
+
