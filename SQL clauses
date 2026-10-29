@@ -1,0 +1,62 @@
+use ecommerce;
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary DECIMAL(10,2),
+    city VARCHAR(30),
+    experience INT
+);
+INSERT INTO employees;
+(emp_id, emp_name, department, salary, city, experience);
+VALUES
+(101, 'Ravi', 'IT', 60000, 'Bangalore', 5),
+(102, 'Priya', 'HR', 45000, 'Hyderabad', 3),
+(103, 'Kiran', 'IT', 75000, 'Bangalore', 7),
+(104, 'Sneha', 'Finance', 50000, 'Chennai', 4),
+(105, 'Arjun', 'Sales', 35000, 'Hyderabad', 2),
+(106, 'Meena', 'IT', 80000, 'Chennai', 8),
+(107, 'Rahul', 'Sales', 40000, 'Bangalore', 3),
+(108, 'Divya', 'HR', 55000, 'Chennai', 6),
+(109, 'Vijay', 'Finance', 65000, 'Hyderabad', 5),
+(110, 'Anu', 'IT', 30000, 'Bangalore', 1);
+
+#Display all records
+select * from employees;
+#Display only employee names and salaries.
+select emp_name,salary from employees;
+#Display only employees working in IT.
+select * from employees where department='IT';
+#Find employees whose salary is greater than ₹50,000.
+select * from employees where salary >50000;
+#practice >, <, >=, <=, =, and !=.
+#AND and OR
+select * from employees where department='HR'
+and salary>=40000;
+select * from employees where department='HR'
+or salary>=60000;
+#Find salaries between ₹40,000 and ₹60,000, including both boundaries.(Between)
+select * from employees where salary between 
+50000 and 60000;
+select * from employees where salary not between 
+50000 and 60000;
+#Display employees from IT or HR.(IN)
+select * from employees where department='IT' 
+or department='HR' or department='Finance';
+select * from employees where department in('IT','HR','Finance')
+select * from employees where department  not in('HR','Finance')
+#Find employee names starting with A.
+select * from employees where emp_name like 'A%';
+select * from employees where emp_name like 'A__';
+select * from employees where emp_name like '%___';
+select * from employees where emp_name not like 'A%';
+#Display each department only once.
+select distinct(department) from employees
+#Arrange salaries from highest to lowest.
+select * from employees order by salary desc
+select * from employees where 
+department='IT' order by salary desc
+#Arrange salaries from lowest to highest.
+select * from employees order by salary 
+#Display the top three highest-paid employees.
+select * from employees order by salary desc limit 3
